@@ -32,7 +32,7 @@ make migrate
 
 Регистрация пользователя:
 ```bash
-curl -X POST http://localhost:8080/auth/login \
+curl -X POST http://localhost:8080/auth/register \
      -H "Content-Type: application/json" \
      -d '{
            "username": "existinguser",
@@ -42,8 +42,13 @@ curl -X POST http://localhost:8080/auth/login \
 
 Логин пользователя:
 ```bash
-curl -X GET http://localhost:8080/tasks \
-     -H "Content-Type: application/json"
+curl -X POST http://localhost:8080/auth/login \
+     -H "Content-Type: application/json" \
+     -d '{
+           "username": "existinguser",
+           "password": "password123"
+         }'
+
 ```
 
 Создание заметки:
